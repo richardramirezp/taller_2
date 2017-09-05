@@ -1,6 +1,6 @@
 /*
 *Nombre: Trabajo 1 ED ll
-*Autor: Richard Ramirez Patiño, Sebastian Urbano.
+*Autor: Richard Ramirez PatiÃ±o, Sebastian Urbano.
 *Fecha: 04/09/2017
 *Resumen:
 */
@@ -662,32 +662,36 @@ void SumaMatrices(){
 	}
 }
 void Matriz_Transpuesta(){
-	int i,j;
+	int filas,columnas,f,c;
 	int l, matriz[l][l];
-	int *pm = &matriz[0][0];
+	int *pm = &matriz[0][0];	
+	printf("Ingrese longitud de filas: ");
+	scanf("%d", &filas);
+	printf("Ingrese longitud de columnas: ");
+	scanf("%d", &columnas);
 
-		printf("\tLlene La Matriz\n");
-	for(i = 0; i < l; i++){
-		for(j = 0; j < l; j++){
-			printf("Ingrese Numero En La Posicion [%d][%d]: ", i, j);
-			scanf("%d", &matriz[i][j]);
+	printf("\tLlene La Matriz\n");
+	for(f = 0; f< filas; f++){
+		for(c = 0; c < columnas; c++){
+			printf("Ingrese Numero En La Posicion [%d][%d]: ",f, c);
+			scanf("%d",(pm + c + f *columnas));
 		}
 	}
 
 	//matriz original
 	printf("\tMatriz Llena\n");
-	for(i = 0; i < l; i++){
-		for(j = 0; j < l; j++){
-			printf("%d ", *(pm + j + i * l));
+	for(f = 0; f < filas; f++){
+		for(c = 0; c < columnas; c++){
+			printf("%d ", *(pm + c + f *columnas));
 		}
 		printf("\n");
 	}
 
 	//matriz transpuesta
 	printf("\tMatriz Traspuesta\n");
-	for(i = 0; i < l; i++){
-		for(j = 0; j < l; j++){
-			printf("%d ", *(pm + i + j * l));
+	for(f = 0; f < filas; f++){
+		for(c = 0; c < columnas; c++){
+			printf("%d ", *(pm + c + f *columnas));
 		}
 		printf("\n");
 	}
