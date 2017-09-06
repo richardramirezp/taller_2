@@ -765,17 +765,18 @@ void MenuEstructuras(){
 	int x;
     int opcion;
     do{
-		printf("\t\t************************************************\n");
-		printf("\t\t*                    MENU                      *\n");
+	printf("\t\t************************************************\n");
+	printf("\t\t*                    MENU                      *\n");
         printf("\t\t************************************************\n");
-		printf("\t\t*                                              *\n");
+	printf("\t\t*                                              *\n");
         printf("\t\t*   1. Datos de un Competidor                  *\n");
         printf("\t\t*   2. Mejor Promedio de 3 estudiantes.        *\n");
-        printf("\t\t*   3. Trabajador                              *\n");
-        printf("\t\t*   4. Mejor y menor Promedio de N estudiantes *\n");
+        printf("\t\t*   3. Trabajadores de una empresa             *\n");
+        printf("\t\t*   4. Datos y promedio de un alumno           *\n");
+	printf("\t\t*   5. Mejor y menor Promedio de N estudiantes *\n");
         printf("\t\t*   0. Salir                                   *\n");
         printf("\t\t*                                              *\n");
-		printf("\t\t************************************************\n\n");
+	printf("\t\t************************************************\n");
         printf("\t\tQue deseas realizar:  ");
         scanf("%d", &opcion);
 		system("cls");
@@ -784,15 +785,11 @@ void MenuEstructuras(){
                 break;
             case 2:Alumno_promedio();
                 break;
-            case 3:trabajador();Alumnos_3(); 
+            case 3:trabajador(); 
                 break;
             case 4:promedio(); 
                 break;
             case 5:N_alumnos();
-                break;
-            case 6:
-                break;
-            case 7: MejoryMenor();
                 break;
             case 0: Menu();
                 break;
@@ -1008,88 +1005,5 @@ void N_alumnos(){
 	printf("\t\tEdad: %d\n",(pAlumnos + con)->edad);
 	printf("\t\tPromedio: %0.2f\n",menor);
 	
-}
-
-void Alumnos_3(){
-	estudiante alumno[3];
-	estudiante *pe = alumno;
-	int i;
-	int mayor=0;
-	float e_mayor;
-
-	for(i = 0; i < 3; i++){
-		printf("\t");
-		printf("\t\t*** Datos Estudiante ***\n\n");
-		printf("\t\tEstudiante %d:\n\n",i+1);
-		fflush(stdin);
-		printf("\t\tIngrese Nombre: ");
-		fgets(pe->nombre,30,stdin);
-		printf("\t\tIngrese edad: ");
-		scanf("%d", &pe->edad);
-		printf("\t\tIngrese el grado en letras: ");
-		fflush(stdin);
-		fgets(pe->grado,10,stdin);
-		printf("\t\tIngrese el promedio: ");
-		fflush(stdin);
-		scanf("%c", &pe->promedio);
-		system("cls");
-		if(pe->promedio > mayor){
-			mayor = pe->promedio;
-			e_mayor = mayor;
-		}
-		fflush(stdin);
-	}
-	printf("\t");
-	printf("\t\t***Datos del Estudiante***\n\n");
-	printf("\t\tNombre: %s",(pe + mayor)->nombre);
-	printf("\t\tGrado: %s\n",(pe + mayor)->grado);
-	printf("\t\tEdad: %d\n",(pe + mayor)->edad);
-	printf("\t\tPromedio: %0.2f\n",e_mayor);
-}
-
-
-
-void MejoryMenor(){
-	int n_alumnos,promMayor=0;
-	float promedio_alumno[100],mayor=0;
-
-	printf("\t");
-	printf("\t\t*** Datos Estudiante ***\n\n");
-	printf("\t\tIngrese Numero de alumnos: ");
-	scanf("%d",&n_alumnos);
-	system("cls");
-	for(int i=0;i<n_alumnos;i++){
-		printf("\t");
-		printf("\t\t*** Datos Estudiante ***\n\n");
-		fflush(stdin);
-		printf("\t\tIngrese Nombre: ");
-		fgets(alumnos[i].nombre,30,stdin);
-		printf("\t\tIngrese m => masculino o f => femenino: ");
-		scanf("%c", &alumnos[i].sexo);
-		printf("\t\tIngrese edad: ");
-		scanf("%d", &alumnos[i].edad);
-		printf("\n\t");
-		printf("\t\t*** Datos Notas ***\n\n");
-		printf("\t\tNota1: ");
-		scanf("%f", &alumnos[i].prom.nota1);
-		printf("\t\tNota2: ");
-		scanf("%f", &alumnos[i].prom.nota2);
-		printf("\t\tNota3: ");
-		scanf("%f", &alumnos[i].prom.nota3);
-
-		promedio_alumno[i] = (alumnos[i].prom.nota1+alumnos[i].prom.nota2+alumnos[i].prom.nota3)/3;
-
-		if(promedio_alumno[i] > mayor){
-			mayor = promedio_alumno[i];
-			promMayor = i;
-		}
-		system("cls");
-	}printf("\t");
-	printf("\t\t*** El Alumno con Mejor Promedio es ***\n\n");
-	printf("\t\tNombre: %s",alumnos[promMayor].nombre);
-	printf("\t\tSexo: %c\n",alumnos[promMayor].sexo);
-	printf("\t\tEdad: %d\n",alumnos[promMayor].edad);
-	printf("\t\tPromedio: %0.2f\n",promedio_alumno[promMayor]);
-	printf("\n");
 }
 
