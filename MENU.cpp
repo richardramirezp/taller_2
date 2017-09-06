@@ -877,7 +877,7 @@ void trabajador(){
 	for(int i = 0; i < 3; i++){
 		printf("\n\tIngrese Datos Del Estudiante\n");
 		fflush(stdin);
-		printf("\nIngrese Nombre Del Trabajado: ");
+		printf("\nIngrese Nombre Del Trabajador: ");
 		fgets((ptra + i) -> nombre, 30, stdin);
 		printf("Ingrese La Edad: ");
 		scanf("%d", &(ptra + i) -> edad);
